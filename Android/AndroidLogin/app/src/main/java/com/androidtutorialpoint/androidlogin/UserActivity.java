@@ -32,14 +32,14 @@ public class UserActivity extends AppCompatActivity {
     private TextView greetingTextView;
     private Button btnLogOut;
     private Button btnCreateTeam,btnUpdate;
-
+    private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         Bundle bundle = getIntent().getExtras();
-        String user = bundle.getString("username");
+        user = bundle.getString("username");
         greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
         btnLogOut = (Button) findViewById(R.id.logout_button);
 
@@ -51,6 +51,7 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), UpdateSkills.class);
+                i.putExtra("username", user);
                 startActivity(i);
             }
         });

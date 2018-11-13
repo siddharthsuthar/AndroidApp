@@ -28,12 +28,19 @@ public class UpdateSkills extends AppCompatActivity {
     private static final String TAG = "UpdateSkills";
     private static final String URL_FOR_REGISTRATION = "http://10.0.0.43:8888/android_login_example/register.php"; //change it to update.php
     ProgressDialog progressDialog;
-
+    private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_update_skills);
+
+        Bundle bundle = getIntent().getExtras();
+        user = bundle.getString("username");
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         ProgrammingLanguages = (EditText) findViewById(R.id.programming_languages);
@@ -49,7 +56,7 @@ public class UpdateSkills extends AppCompatActivity {
         });
         BackButton = (Button) findViewById(R.id.back_button);
 
-        
+
     }
 
 
@@ -114,6 +121,7 @@ public class UpdateSkills extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Posting params to register url
                 Map<String, String> params = new HashMap<String, String>();
+                params.put("name",user);
                 params.put("programmingLanguages", programmingLanguages);
                 params.put("tools", tools);
                 params.put("FrameWorks", FrameWorks);
