@@ -73,20 +73,22 @@ public class LoginActivity extends AppCompatActivity {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
 
-                    if (!error) {
-                        String user = jObj.getJSONObject("user").getString("name");
+                    //if (!error) {
+                    if(true){  // comment this and uncomment the above line  for login functionalities.
+
+                        //String user = jObj.getJSONObject("user").getString("name");
                         // Launch User activity
                         Intent intent = new Intent(
                                 LoginActivity.this,
                                 UserActivity.class);
-                        intent.putExtra("username", user);
+                        intent.putExtra("username", "sid");
                         startActivity(intent);
                         finish();
                     } else {
 
                         String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
-                                errorMsg, Toast.LENGTH_LONG).show();
+                                "Error Message", Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

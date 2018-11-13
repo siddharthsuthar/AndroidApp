@@ -31,6 +31,7 @@ public class UserActivity extends AppCompatActivity {
 
     private TextView greetingTextView;
     private Button btnLogOut;
+    private Button btnCreateTeam;
 
 
     @Override
@@ -41,6 +42,9 @@ public class UserActivity extends AppCompatActivity {
         String user = bundle.getString("username");
         greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
         btnLogOut = (Button) findViewById(R.id.logout_button);
+
+        btnCreateTeam = (Button) findViewById(R.id.create_Team);
+
         greetingTextView.setText("Hello "+ user);
         // Progress dialog
         btnLogOut.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +54,15 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        btnCreateTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), CreateTeam.class);
+                startActivity(i);
+            }
+        });
+
     }
 }
 

@@ -7,7 +7,7 @@
     tools:context="com.androidtutorialpoint.androidlogin.CreateTeam">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/formTeam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -18,49 +18,47 @@
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/expertiseIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/formTeam"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="78dp"
         android:ems="10"
         android:hint="Looking for expertise in ?"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/purpose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Purpose"
         android:inputType="textPersonName"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
+        android:layout_below="@+id/expertiseIn"
+        android:layout_alignLeft="@+id/expertiseIn"
+        android:layout_alignStart="@+id/expertiseIn"
         android:layout_marginTop="35dp" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/taskDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
         android:ems="10"
         android:hint="Task Description"
         android:inputType="textMultiLine"
-        android:layout_below="@+id/editText3"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
+        android:layout_below="@+id/purpose"
+        android:layout_alignLeft="@+id/purpose"
+        android:layout_alignStart="@+id/purpose" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
         android:text="Submit Request"
-        android:layout_below="@+id/editText6"
-        android:layout_centerHorizontal="true"
-        android:onClick="SearchForMatch"/>
+        android:layout_below="@+id/taskDescription"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

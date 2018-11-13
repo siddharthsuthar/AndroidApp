@@ -20,7 +20,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UserActivity" />
         <activity android:name=".MatchesFound" />
-        <activity android:name=".CreateTeam"></activity>
+        <activity android:name=".CreateTeam" />
+        <activity android:name=".UpdateSkills"></activity>
     </application>
 
 </manifest>
