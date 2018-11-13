@@ -31,7 +31,7 @@ public class UserActivity extends AppCompatActivity {
 
     private TextView greetingTextView;
     private Button btnLogOut;
-    private Button btnCreateTeam;
+    private Button btnCreateTeam,btnUpdate;
 
 
     @Override
@@ -44,6 +44,17 @@ public class UserActivity extends AppCompatActivity {
         btnLogOut = (Button) findViewById(R.id.logout_button);
 
         btnCreateTeam = (Button) findViewById(R.id.create_Team);
+
+        btnUpdate = (Button) findViewById(R.id.update_skills);
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), UpdateSkills.class);
+                startActivity(i);
+            }
+        });
+
 
         greetingTextView.setText("Hello "+ user);
         // Progress dialog
