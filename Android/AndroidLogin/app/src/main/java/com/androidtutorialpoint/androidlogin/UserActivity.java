@@ -31,7 +31,7 @@ public class UserActivity extends AppCompatActivity {
 
     private TextView greetingTextView;
     private Button btnLogOut;
-    private Button btnCreateTeam,btnUpdate;
+    private Button btnCreateTeam,btnUpdate , btnFindTeam;
     private String user;
 
     @Override
@@ -42,7 +42,7 @@ public class UserActivity extends AppCompatActivity {
         user = bundle.getString("username");
         greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
         btnLogOut = (Button) findViewById(R.id.logout_button);
-
+        //btnFindTeam = (Button) findViewById(R.id.)
         btnCreateTeam = (Button) findViewById(R.id.create_Team);
 
         btnUpdate = (Button) findViewById(R.id.update_skills);

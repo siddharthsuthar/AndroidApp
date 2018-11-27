@@ -26,17 +26,19 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
 
     //
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public ConstraintLayout row;
+        public LinearLayout row;
         public TextView textView;
-        public ImageView img;
+        //public ImageView img;
+        public Button btnViewProfile;
 
         public ViewHolder(View itemView) {
             super(itemView);
-
-            row = (ConstraintLayout) itemView.findViewById(R.id.a_row);
+            row = (LinearLayout) itemView.findViewById(R.id.a_row);
             textView = (TextView) itemView.findViewById(R.id.text);
-            img = (ImageView) itemView.findViewById(R.id.image);
+           // img = (ImageView) itemView.findViewById(R.id.image);
+            btnViewProfile = (Button) itemView.findViewById(R.id.btn_view_profile); // this button is creating some error
         }
+
 
         @Override
         public void onClick (View v) {
@@ -50,10 +52,15 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
     ArrayList<String> msgList;
 
     public RAdapter(Context c) {
+
+        // here the function will come that will fetch the data from the backend.
+
         msgList = new ArrayList<String>();
         msgList.add("Hello");
         msgList.add("How are you");
         msgList.add("Gooood!");
+
+
     }
 
     @Override
@@ -65,7 +72,8 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return msgList.size();
+
+         return msgList.size();
     }
 
 
