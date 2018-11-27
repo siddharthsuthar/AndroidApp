@@ -21,7 +21,8 @@
         <activity android:name=".UserActivity" />
         <activity android:name=".MatchesFound" />
         <activity android:name=".CreateTeam" />
-        <activity android:name=".UpdateSkills"></activity>
+        <activity android:name=".UpdateSkills" />
+        <activity android:name=".ExistingTeams"></activity>
     </application>
 
 </manifest>

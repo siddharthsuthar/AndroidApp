@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#3D3935</color>
     <color name="colorAccent">#B07D4A</color>
     <color name="white">#ffffff</color>
-    <color name="edittextunderline">#B07D4A</color>
+    <color name="edittextunderline">#b07d4a</color>
     <color name ="login_button_background">#B07D4A</color>
     <color name ="bg_login">#FAF9F7</color>
     <color name="bg_register">#2e3237</color>
