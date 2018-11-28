@@ -106,8 +106,8 @@ public class myDbAdapter {
         Cursor cursor = db.query(myDbHelper.TABLE_NAME_SKILLS
                 , //Table to query
                 columns,                    //columns to return
-                selection,                  //columns for the WHERE clause
-                selectionArgs,              //The values for the WHERE clause
+                null,                  //columns for the WHERE clause
+                null,              //The values for the WHERE clause
                 null,                       //group the rows
                 null,                       //filter by row groups
                 null);
@@ -273,7 +273,7 @@ public class myDbAdapter {
     {
         private static final String DATABASE_NAME = "myDatabase";    // Database Name
         private static final String TABLE_NAME = "userDetails";   // Table Name
-        private static final int DATABASE_Version = 2;    // Database Version
+        private static final int DATABASE_Version = 5;    // Database Version
         private static final String UID="_id";     // Column I (Primary Key)
         private static final String NAME = "Name";    //Column II
         private static final String MyPASSWORD= "Password";    // Column III

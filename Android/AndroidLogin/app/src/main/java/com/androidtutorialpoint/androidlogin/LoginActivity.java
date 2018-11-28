@@ -46,33 +46,43 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 //uncomment this to make the login functionality working with update skills thingy
-//                if(helper.getLogin(loginInputEmail.getText().toString(),
-//                        loginInputPassword.getText().toString())) {
-//
-//                    Log.d("CREATION" , "inside onCreate of login");
-////                    Toast.makeText(getApplicationContext(),
-////                            helper.getDataSkills(), Toast.LENGTH_LONG).show();
-//                    if(!helper.checkSkills(loginInputEmail.getText().toString())) {
-//                        Intent i = new Intent(getApplicationContext(), UpdateSkills.class);
-//                        i.putExtra("email", loginInputEmail.getText().toString());
-//                        startActivity(i);
-//                    }
-//                    else{
-//                        Intent i = new Intent(getApplicationContext(), UserActivity.class);
-//                        i.putExtra("username", loginInputEmail.getText().toString());
-//                        startActivity(i);
-//                    }
-//                }
-//                else {
-//                    Log.d("CREATION" , "inside button click");
-//                    Toast.makeText(getApplicationContext(),
-//                            "User name and password incorrect", Toast.LENGTH_LONG).show();
-//                    Intent i = new Intent(getApplicationContext(),LoginActivity.class);
-//                    startActivity(i);
-//                }
 
-                Intent i = new Intent(getApplicationContext(),ExistingTeams.class);
-                startActivity(i);
+                if(helper.getLogin(loginInputEmail.getText().toString(),
+                        loginInputPassword.getText().toString())) {
+
+                    Log.d("CREATION" , "inside onCreate of login");
+//                    Toast.makeText(getApplicationContext(),
+//                            helper.getDataSkills(), Toast.LENGTH_LONG).show();
+
+                    if(!helper.checkSkills(loginInputEmail.getText().toString())) {
+                        Intent i = new Intent(getApplicationContext(), UpdateSkills.class);
+                        i.putExtra("email", loginInputEmail.getText().toString());
+                        i.putExtra("update", true);
+                        startActivity(i);
+                    }
+                    else{
+                        Intent i = new Intent(getApplicationContext(), UserActivity.class);
+                        i.putExtra("email", loginInputEmail.getText().toString());
+                        startActivity(i);
+                    }
+                }
+                else {
+                    Log.d("CREATION" , "inside button click");
+                    Toast.makeText(getApplicationContext(),
+                            "User name and password incorrect", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(i);
+                }
+
+                // set up a key value pair combination here
+//                i.putExtra("programming_language" , "c++");
+//                i.putExtra("databases" , "c++");
+//                i.putExtra("programming language" , "c++");
+//                  i.putExtra("programming language" , "c++");
+
+
+//                Intent i = new Intent(getApplicationContext(),ExistingTeams.class);
+//                startActivity(i);
             }
         });
 
@@ -80,11 +90,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),RegisterActivity.class);
-                // set up a key value pair combination here
-//                i.putExtra("programming_language" , "c++");
-//                i.putExtra("databases" , "c++");
-//                i.putExtra("programming language" , "c++");
-//                  i.putExtra("programming language" , "c++");
 
                     startActivity(i);
             }

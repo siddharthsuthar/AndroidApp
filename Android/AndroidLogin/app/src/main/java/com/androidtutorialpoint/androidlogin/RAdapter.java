@@ -30,17 +30,17 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public LinearLayout row;
         public TextView textView,textView1;
-        //public ImageView img;
-        //public Button btnViewProfile;
+        public ImageView img;
+        public Button btnViewProfile;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
             row = (LinearLayout) itemView.findViewById(R.id.a_row);
-            textView = (TextView) itemView.findViewById(R.id.text);
-           // textView1= (TextView) itemView.findViewById(R.id.text1);
-           // img = (ImageView) itemView.findViewById(R.id.image);
-            //btnViewProfile = (Button) itemView.findViewById(R.id.btn_view_profile); // this button is creating some error
+            textView = (TextView) itemView.findViewById(R.id.textView);
+            //textView1= (TextView) itemView.findViewById(R.id.text1);
+            //img = (ImageView) itemView.findViewById(R.id.imageView);
+            btnViewProfile = (Button) itemView.findViewById(R.id.btn_view_profile); // this button is creating some error
         }
 
 
@@ -78,10 +78,10 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
         Log.d("CREATION" , "Inside onBingViewHolder");
         TextView textView = viewHolder.textView;
         //TextView textView1 = viewHolder.textView1;
-//        Button button = viewHolder.btnViewProfile;
+       // Button button = viewHolder.btnViewProfile;
         textView.setText(msgList.get(i));
-       // textView1.setText(msgList.get(i));
-  //      button.setText(msgList.get(i));
+      //  textView1.setText(msgList.get(i));
+       // button.setText(msgList.get(i));
 
     }
 
@@ -96,8 +96,11 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
     @Override
     public RAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+
         View view = inflater.inflate(R.layout.row, parent, false);
+
         ViewHolder viewHolder = new ViewHolder(view);
+
         return viewHolder;
     }
 }

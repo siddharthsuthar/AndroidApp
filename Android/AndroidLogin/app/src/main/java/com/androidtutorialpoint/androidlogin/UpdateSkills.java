@@ -30,7 +30,7 @@ public class UpdateSkills extends AppCompatActivity {
     ProgressDialog progressDialog;
     private myDbAdapter helper ;
     private String emailTest ;
-
+    private boolean update ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -39,7 +39,7 @@ public class UpdateSkills extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         emailTest = bundle.getString("email");
-
+        update = bundle.getBoolean("update");
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         description = (EditText) findViewById(R.id.description);
@@ -63,23 +63,31 @@ public class UpdateSkills extends AppCompatActivity {
 
     private void submitForm() {
         Log.d("CREATION" , "inside submit form");
-        long flag= helper.insertSkills(emailTest,description.getText().toString(),ProgrammingLanguages.getText().toString(),
-                Tools.getText().toString(),FrameWorks.getText().toString(), Databases.getText().toString());
 
-        //helper.getDataSkills();
+       //  if(update) {
+            long flag = helper.insertSkills(emailTest, description.getText().toString(), ProgrammingLanguages.getText().toString(),
+                    Tools.getText().toString(), FrameWorks.getText().toString(), Databases.getText().toString());
+
+            //helper.getDataSkills();
 
 //        Toast.makeText(getApplicationContext(),
 //                "Skills Succesfully inserted", Toast.LENGTH_LONG).show();
 
-       // updateSkills(ProgrammingLanguages.getText().toString(),
-             //   Tools.getText().toString(),
-              //  FrameWorks.getText().toString(),
-               // Databases.getText().toString());
-        if(flag>0){
-            Intent i = new Intent(getApplicationContext(), UserActivity.class);
-            i.putExtra("email",emailTest );
-            startActivity(i);
-        }
+            // updateSkills(ProgrammingLanguages.getText().toString(),
+            //   Tools.getText().toString(),
+            //  FrameWorks.getText().toString(),
+            // Databases.getText().toString());
+            if (flag > 0) {
+                Intent i = new Intent(getApplicationContext(), UserActivity.class);
+                i.putExtra("email", emailTest);
+                startActivity(i);
+            }
+      //  }
+      //  else {
+
+            // a function with update query that appends into user .
+
+      //  }
     }
 
     private void updateSkills(final String programmingLanguages , final String tools,
