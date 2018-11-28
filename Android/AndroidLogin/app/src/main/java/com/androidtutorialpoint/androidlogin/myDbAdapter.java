@@ -10,11 +10,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-
-/**
- * Created by sid on 11/27/18.
- */
-
 public class myDbAdapter {
 
     myDbHelper myhelper;
@@ -64,7 +59,40 @@ public class myDbAdapter {
         return id;
     }
 
+    //Shilakha use this function to get the data from the profile. All you need to do now is set it up
 
+//    public "Any Return type you need" getProfile(String Email){
+//
+//        String[] columns = {
+//                myDbHelper.EMAIL
+//        };
+//        ArrayList<String> emails  = new ArrayList<>();
+//        SQLiteDatabase db = myhelper.getReadableDatabase();
+//        String selection = myDbHelper.EMAIL + " = ?";
+//        String[] selectionArgs = {Email};
+//        Cursor cursor = db.query(myDbHelper.TABLE_NAME_SKILLS
+//                , //Table to query
+//                columns,                    //columns to return
+//                selection,                  //columns for the WHERE clause
+//                selectionArgs,              //The values for the WHERE clause
+//                null,                       //group the rows
+//                null,                       //filter by row groups
+//                null);
+//
+//        while (cursor.moveToNext())
+//        {  // here get everything you need
+//            //String email =cursor.getString(cursor.getColumnIndex(myDbHelper.EMAIL));
+//            //String description =cursor.getString(cursor.getColumnIndex(myDbHelper.DESCRIPTION));
+//            //String programming_languages =cursor.getString(cursor.getColumnIndex(myDbHelper.PROGRAMMING_LANGUAGES));
+//            //String tools =cursor.getString(cursor.getColumnIndex(myDbHelper.TOOLS));
+//            //String frameworks=cursor.getString(cursor.getColumnIndex(myDbHelper.FRAMEWORKS));
+//            //String databases=cursor.getString(cursor.getColumnIndex(myDbHelper.DATABASES));
+//            //emails.add(email);
+//        }
+//        //return emails;
+//
+//
+//    }
 
 
     public ArrayList<String> getEmails(String programmingLanguages){
