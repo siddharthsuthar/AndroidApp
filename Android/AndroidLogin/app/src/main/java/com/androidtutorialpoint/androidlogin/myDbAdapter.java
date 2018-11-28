@@ -37,15 +37,24 @@ public class myDbAdapter {
     public String getData()
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
-        String[] columns = {myDbHelper.UID,myDbHelper.NAME,myDbHelper.MyPASSWORD};
+
+        String[] columns = {myDbHelper.UID,myDbHelper.NAME,myDbHelper.EMAIL
+                ,myDbHelper.MyPASSWORD,myDbHelper.GENDER,myDbHelper.AGE};
+
         Cursor cursor =db.query(myDbHelper.TABLE_NAME,columns,null,null,null,null,null);
+
         StringBuffer buffer= new StringBuffer();
+
         while (cursor.moveToNext())
         {
             int cid =cursor.getInt(cursor.getColumnIndex(myDbHelper.UID));
             String name =cursor.getString(cursor.getColumnIndex(myDbHelper.NAME));
+            String email =cursor.getString(cursor.getColumnIndex(myDbHelper.EMAIL));
+
             String  password =cursor.getString(cursor.getColumnIndex(myDbHelper.MyPASSWORD));
-            buffer.append(cid+ "   " + name + "   " + password +" \n");
+            String gender =cursor.getString(cursor.getColumnIndex(myDbHelper.GENDER));
+            String age =cursor.getString(cursor.getColumnIndex(myDbHelper.AGE));
+            buffer.append(cid+ "   " + name + "   " + password + "  " + email+" "+" "+gender+" \n");
         }
         return buffer.toString();
     }

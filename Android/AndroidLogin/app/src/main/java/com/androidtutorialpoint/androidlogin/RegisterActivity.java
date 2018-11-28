@@ -82,6 +82,10 @@ public class RegisterActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),
                 "Succesfully inserted", Toast.LENGTH_LONG).show();
 
+        String data = helper.getData();
+
+        //Toast.makeText(getApplicationContext(),
+          //     data, Toast.LENGTH_LONG).show();
 
 
 //        registerUser(signupInputName.getText().toString(),

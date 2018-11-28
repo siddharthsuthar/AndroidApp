@@ -22,7 +22,8 @@
         <activity android:name=".MatchesFound" />
         <activity android:name=".CreateTeam" />
         <activity android:name=".UpdateSkills" />
-        <activity android:name=".ExistingTeams"></activity>
+        <activity android:name=".ExistingTeams" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>
