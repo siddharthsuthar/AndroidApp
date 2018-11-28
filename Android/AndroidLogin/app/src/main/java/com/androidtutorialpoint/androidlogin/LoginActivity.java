@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText loginInputEmail, loginInputPassword;
     private Button btnlogin;
     private Button btnLinkSignup;
+    private myDbAdapter helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +40,46 @@ public class LoginActivity extends AppCompatActivity {
         // Progress dialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
-
+        helper = new myDbAdapter(this);
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                loginUser(loginInputEmail.getText().toString(),
-//                        loginInputPassword.getText().toString());
-                Intent i = new Intent(getApplicationContext(), UpdateSkills.class);
-                i.putExtra("username", "sid");
-                startActivity(i);
 
+                if(helper.getLogin(loginInputEmail.getText().toString(),
+                        loginInputPassword.getText().toString())) {
+
+                    Log.d("CREATION" , "inside onCreate of login");
+
+//                    Toast.makeText(getApplicationContext(),
+//                            helper.getDataSkills(), Toast.LENGTH_LONG).show();
+
+                    if(!helper.checkSkills(loginInputEmail.getText().toString())) {
+                        Intent i = new Intent(getApplicationContext(), UpdateSkills.class);
+                        i.putExtra("email", loginInputEmail.getText().toString());
+                        startActivity(i);
+                    }
+                    else{
+                        Intent i = new Intent(getApplicationContext(), UserActivity.class);
+                        i.putExtra("username", loginInputEmail.getText().toString());
+                        startActivity(i);
+                    }
+
+                }
+                else {
+                    Log.d("CREATION" , "inside button click");
+                    Toast.makeText(getApplicationContext(),
+                            "User name and password incorrect", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(i);
+
+                }
             }
         });
 
         btnLinkSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
+                Intent i = new Intent(getApplicationContext(),RegisterActivity.class);
                 startActivity(i);
             }
         });
@@ -132,6 +156,13 @@ public class LoginActivity extends AppCompatActivity {
         if (progressDialog.isShowing())
             progressDialog.dismiss();
     }
+
+    // Use this for hiding keyboard
+
+//    private void hideKeyboardFrom(View view) {
+//        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+//        imm.hideSoftInputFromWindow(view.getWindowToken(), WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+//    }
 
 }
 

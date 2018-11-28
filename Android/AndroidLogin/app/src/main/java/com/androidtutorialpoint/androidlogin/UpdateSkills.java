@@ -28,20 +28,17 @@ public class UpdateSkills extends AppCompatActivity {
     private static final String TAG = "UpdateSkills";
     private static final String URL_FOR_REGISTRATION = "http://10.0.0.43:8888/android_login_example/register.php"; //change it to update.php
     ProgressDialog progressDialog;
-    private String user;
     private myDbAdapter helper ;
-    private String emailTest = "dawar.shilakha@gmail.com";
+    private String emailTest ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_update_skills);
 
         Bundle bundle = getIntent().getExtras();
-        user = bundle.getString("username");
+        emailTest = bundle.getString("email");
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -52,6 +49,7 @@ public class UpdateSkills extends AppCompatActivity {
         Databases = (EditText) findViewById(R.id.databases);
         UpdateButton = (Button) findViewById(R.id.btn_update);
         helper = new myDbAdapter(this);
+
         UpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +67,6 @@ public class UpdateSkills extends AppCompatActivity {
                 Tools.getText().toString(),FrameWorks.getText().toString(), Databases.getText().toString());
 
         helper.getDataSkills();
-
 
         Toast.makeText(getApplicationContext(),
                 "Skills Succesfully inserted", Toast.LENGTH_LONG).show();
@@ -135,7 +132,7 @@ public class UpdateSkills extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Posting params to register url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("name",user);
+                params.put("name",emailTest);
                 params.put("programmingLanguages", programmingLanguages);
                 params.put("tools", tools);
                 params.put("FrameWorks", FrameWorks);
@@ -160,4 +157,5 @@ public class UpdateSkills extends AppCompatActivity {
         if (progressDialog.isShowing())
             progressDialog.dismiss();
     }
+
 }

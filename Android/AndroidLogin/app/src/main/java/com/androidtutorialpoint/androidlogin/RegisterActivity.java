@@ -78,16 +78,17 @@ public class RegisterActivity extends AppCompatActivity {
 
         long flag = helper.insertData(signupInputName.getText().toString(),signupInputEmail.getText().toString(),signupInputPassword.getText().toString(),
         gender,signupInputAge.getText().toString());
-
-        if(flag!=0) {
+        if(flag >=0){
             Toast.makeText(getApplicationContext(),
-                    "Succesfull ", Toast.LENGTH_LONG).show();
+                    "Succesfully Registered Log in Now", Toast.LENGTH_LONG).show();
+            Intent i = new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(i);
         }
-        String data = helper.getData();
 
-        Toast.makeText(getApplicationContext(),
-               data, Toast.LENGTH_LONG).show();
-
+        else{
+            Toast.makeText(getApplicationContext(),
+                    "Error during registration", Toast.LENGTH_LONG).show();
+        }
 
 //        registerUser(signupInputName.getText().toString(),
 //                     signupInputEmail.getText().toString(),

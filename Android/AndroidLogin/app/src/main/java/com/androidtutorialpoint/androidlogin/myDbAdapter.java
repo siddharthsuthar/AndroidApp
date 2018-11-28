@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
-import java.io.PrintStream;
+
 
 /**
  * Created by sid on 11/27/18.
@@ -72,8 +72,6 @@ public class myDbAdapter {
     {
 
         SQLiteDatabase db = myhelper.getWritableDatabase();
-//        Cursor cursor = db.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '"
-//                + myDbHelper.TABLE_NAME + "'", null);
 
         Log.d("CREATION" ,"Inside the get data method");
         String[] columns = {myDbHelper.UID,myDbHelper.NAME,myDbHelper.EMAIL};
@@ -98,15 +96,49 @@ public class myDbAdapter {
 
     }
 
+    public boolean getLogin(String email , String password){
+
+        // array of columns to fetch
+        String[] columns = {
+                myDbHelper.UID
+        };
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+        // selection criteria
+        String selection = myDbHelper.EMAIL + " = ?" + " AND " + myDbHelper.MyPASSWORD + " = ?";
+
+        // selection arguments
+        String[] selectionArgs = {email, password};
+
+        Cursor cursor = db.query(myDbHelper.TABLE_NAME
+                , //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                       //filter by row groups
+                null);                      //The sort order
+
+        int cursorCount = cursor.getCount();
+
+        cursor.close();
+        db.close();
+        if (cursorCount > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
     public String getDataSkills()
     {
 
         SQLiteDatabase db = myhelper.getWritableDatabase();
 
         Log.d("CREATION" ,"Inside the get data method");
-        String []columns = {myDbHelper.EMAIL};
+        String []columns = {myDbHelper.EMAIL ,myDbHelper.DESCRIPTION,myDbHelper.PROGRAMMING_LANGUAGES,myDbHelper.TOOLS
+        ,myDbHelper.FRAMEWORKS,myDbHelper.DATABASES};
         //Log.d("CREATION" ,columns[0]);
-        //Cursor cursor = db.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '"+ myDbHelper.TABLE_NAME_SKILLS + "'", null);
+
 
         Cursor cursor =db.query(myDbHelper.TABLE_NAME_SKILLS,columns,null,null,null,null,null);
 
@@ -116,22 +148,47 @@ public class myDbAdapter {
 
         while (cursor.moveToNext())
         {
-            //int cid =cursor.getInt(cursor.getColumnIndex(myDbHelper.UID));
-            //String name =cursor.getString(cursor.getColumnIndex(myDbHelper.NAME));
-
             String email =cursor.getString(cursor.getColumnIndex(myDbHelper.EMAIL));
-            String  password =cursor.getString(cursor.getColumnIndex(myDbHelper.MyPASSWORD));
-            String gender =cursor.getString(cursor.getColumnIndex(myDbHelper.GENDER));
-            String age =cursor.getString(cursor.getColumnIndex(myDbHelper.AGE));
-            buffer.append(email+" \n");
+            String description =cursor.getString(cursor.getColumnIndex(myDbHelper.DESCRIPTION));
+            String programming_languages =cursor.getString(cursor.getColumnIndex(myDbHelper.PROGRAMMING_LANGUAGES));
+            String tools =cursor.getString(cursor.getColumnIndex(myDbHelper.TOOLS));
+            String frameworks=cursor.getString(cursor.getColumnIndex(myDbHelper.FRAMEWORKS));
+            String databases=cursor.getString(cursor.getColumnIndex(myDbHelper.DATABASES));
+            buffer.append(email+" "+description+" "+" "+programming_languages
+                    +" "+tools+" "+frameworks+" "+databases+"\n");
 
         }
         Log.d("CREATION" ,buffer.toString());
-        return "Finished";
+        return buffer.toString();
 
     }
 
+    public boolean checkSkills(String email){
 
+        String[] columns = {
+                myDbHelper.EMAIL
+        };
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+        String selection = myDbHelper.EMAIL + " = ?";
+        String[] selectionArgs = {email};
+        Cursor cursor = db.query(myDbHelper.TABLE_NAME
+                , //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                       //filter by row groups
+                null);                      //The sort order
+
+        int cursorCount = cursor.getCount();
+        Log.d("CREATION" ,"Inside check"+String.valueOf(cursorCount));
+        cursor.close();
+        db.close();
+        if (cursorCount > 0) {
+            return true;
+        }
+        return false;
+    }
 
 
 
