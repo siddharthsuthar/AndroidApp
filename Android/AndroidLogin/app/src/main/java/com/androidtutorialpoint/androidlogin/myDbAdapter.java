@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 
 
 /**
@@ -66,7 +67,35 @@ public class myDbAdapter {
 
 
 
+    public ArrayList<String> getEmails(String programmingLanguages){
+        String[] columns = {
+                myDbHelper.EMAIL
+        };
+        ArrayList<String> emails  = new ArrayList<>();
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+        String selection = myDbHelper.PROGRAMMING_LANGUAGES + " = ?";
+        String[] selectionArgs = {programmingLanguages};
+        Cursor cursor = db.query(myDbHelper.TABLE_NAME_SKILLS
+                , //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                       //filter by row groups
+                null);
 
+        while (cursor.moveToNext())
+        {
+            String email =cursor.getString(cursor.getColumnIndex(myDbHelper.EMAIL));
+            //String description =cursor.getString(cursor.getColumnIndex(myDbHelper.DESCRIPTION));
+            //String programming_languages =cursor.getString(cursor.getColumnIndex(myDbHelper.PROGRAMMING_LANGUAGES));
+            //String tools =cursor.getString(cursor.getColumnIndex(myDbHelper.TOOLS));
+            //String frameworks=cursor.getString(cursor.getColumnIndex(myDbHelper.FRAMEWORKS));
+            //String databases=cursor.getString(cursor.getColumnIndex(myDbHelper.DATABASES));
+            emails.add(email);
+        }
+        return emails;
+    }
 
     public String getData()
     {

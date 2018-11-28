@@ -10,14 +10,19 @@ public class ExistingTeams extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_existing_teams);
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        RAdapter radapter = new RAdapter(this);
+
+        myDbAdapter helper = new myDbAdapter(this);
+
+        RAdapter radapter = new RAdapter(this , helper);
+
         recyclerView.setAdapter(radapter);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //val recyclerView:RecyclerView = findViewById(R.id.recyclerview);
         //recyclerView.layoutManager  = LinearLayoutManager(this);
-
-
     }
 }

@@ -63,20 +63,23 @@ public class UpdateSkills extends AppCompatActivity {
 
     private void submitForm() {
         Log.d("CREATION" , "inside submit form");
-        helper.insertSkills(emailTest,description.getText().toString(),ProgrammingLanguages.getText().toString(),
+        long flag= helper.insertSkills(emailTest,description.getText().toString(),ProgrammingLanguages.getText().toString(),
                 Tools.getText().toString(),FrameWorks.getText().toString(), Databases.getText().toString());
 
-        helper.getDataSkills();
+        //helper.getDataSkills();
 
-        Toast.makeText(getApplicationContext(),
-                "Skills Succesfully inserted", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(),
+//                "Skills Succesfully inserted", Toast.LENGTH_LONG).show();
 
        // updateSkills(ProgrammingLanguages.getText().toString(),
              //   Tools.getText().toString(),
               //  FrameWorks.getText().toString(),
                // Databases.getText().toString());
-
-
+        if(flag>0){
+            Intent i = new Intent(getApplicationContext(), UserActivity.class);
+            i.putExtra("email",emailTest );
+            startActivity(i);
+        }
     }
 
     private void updateSkills(final String programmingLanguages , final String tools,
