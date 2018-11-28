@@ -30,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnSignUp;
     private Button btnLinkLogin;
     private RadioGroup genderRadioGroup;
+    private myDbAdapter helper ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnLinkLogin = (Button) findViewById(R.id.btn_link_login);
 
         genderRadioGroup = (RadioGroup) findViewById(R.id.gender_radio_group);
+        helper = new myDbAdapter(this);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,11 +76,19 @@ public class RegisterActivity extends AppCompatActivity {
         else
             gender = "Male";
 
-        registerUser(signupInputName.getText().toString(),
-                     signupInputEmail.getText().toString(),
-                     signupInputPassword.getText().toString(),
-                     gender,
-                     signupInputAge.getText().toString());
+        helper.insertData(signupInputName.getText().toString(),signupInputEmail.getText().toString(),signupInputPassword.getText().toString(),
+        gender,signupInputAge.getText().toString());
+
+        Toast.makeText(getApplicationContext(),
+                "Succesfully inserted", Toast.LENGTH_LONG).show();
+
+
+
+//        registerUser(signupInputName.getText().toString(),
+//                     signupInputEmail.getText().toString(),
+//                     signupInputPassword.getText().toString(),
+//                     gender,
+//                     signupInputAge.getText().toString());
     }
 
     private void registerUser(final String name,  final String email, final String password,

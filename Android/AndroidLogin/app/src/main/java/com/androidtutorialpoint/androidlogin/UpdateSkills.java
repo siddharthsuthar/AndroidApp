@@ -23,8 +23,8 @@ import java.util.Map;
 
 public class UpdateSkills extends AppCompatActivity {
 
-    private EditText ProgrammingLanguages , Tools,FrameWorks,Databases;
-    private Button UpdateButton, BackButton ;
+    private EditText ProgrammingLanguages,Tools,FrameWorks,Databases;
+    private Button UpdateButton;
     private static final String TAG = "UpdateSkills";
     private static final String URL_FOR_REGISTRATION = "http://10.0.0.43:8888/android_login_example/register.php"; //change it to update.php
     ProgressDialog progressDialog;
@@ -54,7 +54,7 @@ public class UpdateSkills extends AppCompatActivity {
                 submitForm();
             }
         });
-        BackButton = (Button) findViewById(R.id.back_button);
+        //BackButton = (Button) findViewById(R.id.back_button);
 
 
     }
@@ -62,10 +62,12 @@ public class UpdateSkills extends AppCompatActivity {
 
     private void submitForm() {
 
-        updateSkills(ProgrammingLanguages.getText().toString(),
-                Tools.getText().toString(),
-                FrameWorks.getText().toString(),
-                Databases.getText().toString());
+       // updateSkills(ProgrammingLanguages.getText().toString(),
+             //   Tools.getText().toString(),
+              //  FrameWorks.getText().toString(),
+               // Databases.getText().toString());
+
+
     }
 
     private void updateSkills(final String programmingLanguages , final String tools,

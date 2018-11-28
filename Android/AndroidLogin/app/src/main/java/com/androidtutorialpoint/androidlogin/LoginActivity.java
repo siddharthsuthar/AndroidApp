@@ -45,8 +45,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                loginUser(loginInputEmail.getText().toString(),
 //                        loginInputPassword.getText().toString());
-                Intent i = new Intent(getApplicationContext(), ExistingTeams.class);
-                //i.putExtra("username", "sid");
+                Intent i = new Intent(getApplicationContext(), UpdateSkills.class);
+                i.putExtra("username", "sid");
                 startActivity(i);
 
             }

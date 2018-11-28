@@ -36,7 +36,7 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
             row = (LinearLayout) itemView.findViewById(R.id.a_row);
             textView = (TextView) itemView.findViewById(R.id.text);
            // img = (ImageView) itemView.findViewById(R.id.image);
-            btnViewProfile = (Button) itemView.findViewById(R.id.btn_view_profile); // this button is creating some error
+            //btnViewProfile = (Button) itemView.findViewById(R.id.btn_view_profile); // this button is creating some error
         }
 
 
