@@ -76,16 +76,17 @@ public class RegisterActivity extends AppCompatActivity {
         else
             gender = "Male";
 
-        helper.insertData(signupInputName.getText().toString(),signupInputEmail.getText().toString(),signupInputPassword.getText().toString(),
+        long flag = helper.insertData(signupInputName.getText().toString(),signupInputEmail.getText().toString(),signupInputPassword.getText().toString(),
         gender,signupInputAge.getText().toString());
 
-        Toast.makeText(getApplicationContext(),
-                "Succesfully inserted", Toast.LENGTH_LONG).show();
-
+        if(flag!=0) {
+            Toast.makeText(getApplicationContext(),
+                    "Succesfull ", Toast.LENGTH_LONG).show();
+        }
         String data = helper.getData();
 
-        //Toast.makeText(getApplicationContext(),
-          //     data, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),
+               data, Toast.LENGTH_LONG).show();
 
 
 //        registerUser(signupInputName.getText().toString(),

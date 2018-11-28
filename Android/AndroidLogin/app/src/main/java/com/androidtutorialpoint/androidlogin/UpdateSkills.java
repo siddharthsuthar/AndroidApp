@@ -23,12 +23,14 @@ import java.util.Map;
 
 public class UpdateSkills extends AppCompatActivity {
 
-    private EditText ProgrammingLanguages,Tools,FrameWorks,Databases;
+    private EditText ProgrammingLanguages,Tools,FrameWorks,Databases,description;
     private Button UpdateButton;
     private static final String TAG = "UpdateSkills";
     private static final String URL_FOR_REGISTRATION = "http://10.0.0.43:8888/android_login_example/register.php"; //change it to update.php
     ProgressDialog progressDialog;
     private String user;
+    private myDbAdapter helper ;
+    private String emailTest = "dawar.shilakha@gmail.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,24 +45,34 @@ public class UpdateSkills extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
+        description = (EditText) findViewById(R.id.description);
         ProgrammingLanguages = (EditText) findViewById(R.id.programming_languages);
         Tools = (EditText) findViewById(R.id.tools);
         FrameWorks = (EditText) findViewById(R.id.frameworks);
         Databases = (EditText) findViewById(R.id.databases);
         UpdateButton = (Button) findViewById(R.id.btn_update);
+        helper = new myDbAdapter(this);
         UpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 submitForm();
             }
         });
-        //BackButton = (Button) findViewById(R.id.back_button);
 
 
     }
 
 
     private void submitForm() {
+        Log.d("CREATION" , "inside submit form");
+        helper.insertSkills(emailTest,description.getText().toString(),ProgrammingLanguages.getText().toString(),
+                Tools.getText().toString(),FrameWorks.getText().toString(), Databases.getText().toString());
+
+        helper.getDataSkills();
+
+
+        Toast.makeText(getApplicationContext(),
+                "Skills Succesfully inserted", Toast.LENGTH_LONG).show();
 
        // updateSkills(ProgrammingLanguages.getText().toString(),
              //   Tools.getText().toString(),
