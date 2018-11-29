@@ -23,18 +23,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="49dp"
         android:text="TextView"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="98dp"
         tools:layout_editor_absoluteY="4dp" />
 
-    <Button
-        android:id="@+id/btn_view_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="49dp"
-        android:layout_weight="1"
-        android:text="View Profile" />
 
 </LinearLayout>

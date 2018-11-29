@@ -1,6 +1,7 @@
 package com.androidtutorialpoint.androidlogin;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,7 +40,9 @@ public class UpdateSkills extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         emailTest = bundle.getString("email");
+
         update = bundle.getBoolean("update");
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         description = (EditText) findViewById(R.id.description);
@@ -62,12 +65,12 @@ public class UpdateSkills extends AppCompatActivity {
 
 
     private void submitForm() {
-        Log.d("CREATION" , "inside submit form");
 
-       //  if(update) {
+        Log.d("CREATION" , "inside submit form");
             long flag = helper.insertSkills(emailTest, description.getText().toString(), ProgrammingLanguages.getText().toString(),
                     Tools.getText().toString(), FrameWorks.getText().toString(), Databases.getText().toString());
 
+/*
             //helper.getDataSkills();
 
 //        Toast.makeText(getApplicationContext(),
@@ -77,84 +80,79 @@ public class UpdateSkills extends AppCompatActivity {
             //   Tools.getText().toString(),
             //  FrameWorks.getText().toString(),
             // Databases.getText().toString());
+        */
             if (flag > 0) {
                 Intent i = new Intent(getApplicationContext(), UserActivity.class);
                 i.putExtra("email", emailTest);
                 startActivity(i);
             }
-      //  }
-      //  else {
-
-            // a function with update query that appends into user .
-
-      //  }
     }
 
-    private void updateSkills(final String programmingLanguages , final String tools,
-                              final String FrameWorks,
-                              final String Databases){
-        progressDialog.setMessage("Updating Skills ...");
-        showDialog();
-        String cancel_req_tag = "register";
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                URL_FOR_REGISTRATION, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Register Response: " + response.toString());
-                hideDialog();
-
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    boolean error = jObj.getBoolean("error");
-
-                    if (!error) {
-                        String user = jObj.getJSONObject("user").getString("name");
-                        Toast.makeText(getApplicationContext(), "Hi " + user +", You have successfully Updated your skills!", Toast.LENGTH_SHORT).show();
-
-                        // Launch login activity
-//                        Intent intent = new Intent(
-//                                UpdateSkills.this,
-//                                LoginActivity.class);
-//                        startActivity(intent);
-//                        finish();
-                    } else {
-
-                        String errorMsg = jObj.getString("error_msg");
-                        Toast.makeText(getApplicationContext(),
-                                errorMsg, Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Update Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_LONG).show();
-                hideDialog();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting params to register url
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("name",emailTest);
-                params.put("programmingLanguages", programmingLanguages);
-                params.put("tools", tools);
-                params.put("FrameWorks", FrameWorks);
-                params.put("Databases", Databases);
-                return params;
-            }
-        };
-        // Adding request to request queue
-        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
-
-    }
+//    private void updateSkills(final String programmingLanguages , final String tools,
+//                              final String FrameWorks,
+//                              final String Databases){
+//        progressDialog.setMessage("Updating Skills ...");
+//        showDialog();
+//        String cancel_req_tag = "register";
+//        StringRequest strReq = new StringRequest(Request.Method.POST,
+//                URL_FOR_REGISTRATION, new Response.Listener<String>() {
+//
+//            @Override
+//            public void onResponse(String response) {
+//                Log.d(TAG, "Register Response: " + response.toString());
+//                hideDialog();
+//
+//                try {
+//                    JSONObject jObj = new JSONObject(response);
+//                    boolean error = jObj.getBoolean("error");
+//
+//                    if (!error) {
+//                        String user = jObj.getJSONObject("user").getString("name");
+//                        Toast.makeText(getApplicationContext(), "Hi " + user +", You have successfully Updated your skills!", Toast.LENGTH_SHORT).show();
+//
+//                        // Launch login activity
+////                        Intent intent = new Intent(
+////                                UpdateSkills.this,
+////                                LoginActivity.class);
+////                        startActivity(intent);
+////                        finish();
+//                    } else {
+//
+//                        String errorMsg = jObj.getString("error_msg");
+//                        Toast.makeText(getApplicationContext(),
+//                                errorMsg, Toast.LENGTH_LONG).show();
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e(TAG, "Update Error: " + error.getMessage());
+//                Toast.makeText(getApplicationContext(),
+//                        error.getMessage(), Toast.LENGTH_LONG).show();
+//                hideDialog();
+//            }
+//        }) {
+//            @Override
+//            protected Map<String, String> getParams() {
+//                // Posting params to register url
+//                Map<String, String> params = new HashMap<String, String>();
+//                params.put("name",emailTest);
+//                params.put("programmingLanguages", programmingLanguages);
+//                params.put("tools", tools);
+//                params.put("FrameWorks", FrameWorks);
+//                params.put("Databases", Databases);
+//                return params;
+//            }
+//        };
+//        // Adding request to request queue
+//        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
+//
+//    }
 
 
 

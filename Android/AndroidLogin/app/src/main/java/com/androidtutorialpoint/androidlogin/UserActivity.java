@@ -32,17 +32,17 @@ public class UserActivity extends AppCompatActivity {
     private TextView greetingTextView;
     private Button btnLogOut;
     private Button btnCreateTeam,btnUpdate , btnFindTeam;
-    private String user;
+    private String emailText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         Bundle bundle = getIntent().getExtras();
-        user = bundle.getString("email");
+        emailText = bundle.getString("email");
         greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
         btnLogOut = (Button) findViewById(R.id.logout_button);
-        //btnFindTeam = (Button) findViewById(R.id.)
+        btnFindTeam = (Button) findViewById(R.id.find_Team);
         btnCreateTeam = (Button) findViewById(R.id.create_Team);
 
         btnUpdate = (Button) findViewById(R.id.update_skills);
@@ -51,14 +51,14 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), UpdateSkills.class);
-                i.putExtra("email", user);
+                i.putExtra("email", emailText);
                 i.putExtra("update", true);
                 startActivity(i);
             }
         });
 
 
-        greetingTextView.setText("Hello "+ user);
+        greetingTextView.setText("Hello "+ emailText);
         // Progress dialog
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +73,19 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), CreateTeam.class);
                 startActivity(i);
+                }
+        });
+
+        btnFindTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), ExistingTeams.class);
+                i.putExtra("email", emailText);
+                startActivity(i);
             }
         });
+
+
 
     }
 }

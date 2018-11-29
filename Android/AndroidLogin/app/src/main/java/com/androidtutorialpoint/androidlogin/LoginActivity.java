@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                     if(!helper.checkSkills(loginInputEmail.getText().toString())) {
                         Intent i = new Intent(getApplicationContext(), UpdateSkills.class);
                         i.putExtra("email", loginInputEmail.getText().toString());
-                        i.putExtra("update", true);
+                        i.putExtra("update", false);
                         startActivity(i);
                     }
                     else{
@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 
 //                Intent i = new Intent(getApplicationContext(),ExistingTeams.class);
 //                startActivity(i);
+
             }
         });
 
