@@ -1,208 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp" >
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TextView
+            android:id="@+id/activity_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Skills"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/skills_input_layout_programming_languages"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
 
-    </android.support.design.widget.AppBarLayout>
+            <EditText
+                android:id="@+id/programming_languages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Programming Languages" />
+        </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="95dp" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/skills_input_layout_tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="87dp"
-        android:text="User Details"
-        android:textSize="35dp"
+            <TextView
+                android:id="@+id/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Tools" />
+        </android.support.design.widget.TextInputLayout>
 
-        />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/skills_input_layout_frameworks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="166dp"
-        android:layout_toStartOf="@+id/textView11"
-        android:text="Name" />
+            <TextView
+                android:id="@+id/frameworks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="FrameWorks" />
+        </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView12"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="209dp"
-        android:text="Email" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/skils_input_layout_databases"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="76dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView12"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-26dp"
-        android:layout_marginTop="248dp"
-        android:text="User Description" />
+            <TextView
+                android:id="@+id/databases"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Databases" />
+        </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="87dp"
-        android:layout_height="39dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-12dp"
-        android:layout_marginBottom="230dp"
-        android:layout_toStartOf="@+id/textView11"
-        android:text="Programming Languages" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/skills_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView12"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginBottom="188dp"
-        android:text="Tools" />
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Describe a little about your skills" />
+        </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView12"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-24dp"
-        android:layout_marginBottom="136dp"
-        android:text="Frameworks" />
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/login_button_background"
+            android:text="@string/btn_update"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView12"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-12dp"
-        android:layout_marginBottom="87dp"
-        android:text="Databases" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:text="Contact" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="153dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/editText12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
-        android:layout_alignStart="@+id/editText"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <EditText
-        android:id="@+id/editText13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView15"
-        android:layout_toEndOf="@+id/textView18"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <EditText
-        android:id="@+id/editText14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText6"
-        android:layout_toEndOf="@+id/textView18"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <EditText
-        android:id="@+id/editText15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="166dp"
-        android:layout_toEndOf="@+id/textView18"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <EditText
-        android:id="@+id/editText16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText11"
-        android:layout_toEndOf="@+id/textView18"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <EditText
-        android:id="@+id/editText17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText15"
-        android:layout_marginTop="-166dp"
-        android:layout_toEndOf="@+id/textView18"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <EditText
-        android:id="@+id/editText18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText13"
-        android:layout_alignBottom="@+id/textView18"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="-13dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-</RelativeLayout>
+</LinearLayout>

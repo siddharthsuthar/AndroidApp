@@ -1,6 +1,7 @@
 package com.androidtutorialpoint.androidlogin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View.OnClickListener;
@@ -8,6 +9,8 @@ import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import java.util.ArrayList;
+
+//import static android.support.v4.app.ActivityCompat.startActivity;
 
 
 public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
@@ -31,8 +34,9 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         public LinearLayout row;
         public TextView textView,textView1;
-        public ImageView img;
-        public Button btnViewProfile;
+
+        //public ImageView img;
+        //public Button btnViewProfile;
         //private OnClickListener mOnClickListener = new OnClickListener();
 
 
@@ -46,7 +50,11 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
                 @Override
                 public void onClick (View v) {
                     int pos = getAdapterPosition();
-                    Toast.makeText(v.getContext(), msgList.get(pos), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(v.getContext(), msgList.get(pos), Toast.LENGTH_LONG).show();
+
+                    Intent i = new Intent(v.getContext(), ProfileActivity.class);
+                    i.putExtra("email", msgList.get(pos));
+                    v.getContext().startActivity(i);
                 }
 
             });
@@ -69,14 +77,14 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
 
         msgList = helper.getEmails("c++");   // here the programming language from the context will come
 
-        if(msgList.size()==0){   //this is because not proper data..
-
-            msgList.add("One");
-            msgList.add("two");
-            msgList.add("three");
-            msgList.add("four");
-            msgList.add("five");
-        }
+//        if(msgList.size()==0){   //this is because not proper data..
+//
+//            msgList.add("One");
+//            msgList.add("two");
+//            msgList.add("three");
+//            msgList.add("four");
+//            msgList.add("five");
+//        }
     }
 
     @Override
