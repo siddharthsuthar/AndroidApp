@@ -35,9 +35,7 @@ public class ActivityLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         parent_view = findViewById(android.R.id.content);
-
         inputLayoutEmail = (TextInputLayout) findViewById(R.id.input_layout_email);
         inputLayoutPassword = (TextInputLayout) findViewById(R.id.input_layout_password);
         inputEmail = (EditText) findViewById(R.id.input_email);
@@ -75,7 +73,6 @@ public class ActivityLogin extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-
     /**
      * Validating form
      */

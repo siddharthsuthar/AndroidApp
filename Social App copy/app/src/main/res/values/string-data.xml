@@ -185,6 +185,11 @@
     <string name="hint_age">Age</string>
     <string name="hint_country">Country</string>
     <string name="hint_city">City</string>
+    <string name="hint_programmingSkills">Programming Skills</string>
+    <string name="hint_frameworks">Frameworks</string>
+    <string name="hint_databases">Databases</string>
+    <string name="hint_tools">Tools</string>
+    <string name="hint_postRequest">POST</string>
     <string name="btn_login">Login</string>
     <string name="btn_reset">Reset</string>
     <string name="err_msg_email">Enter valid email address</string>

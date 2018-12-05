@@ -5,19 +5,17 @@
     <string name="press_again_exit_app">Press again to exit</string>
     <string name="action_settings">Settings</string>
     <string name="activity_select_friend">Select Friend</string>
-
     <string name="about_text">This is a TeamFinder App where people can form their own teams and look for people with similar skills
         to form a new team. or Work on a project
     </string>
-
     <string name="my_name">Siddharth Suthar</string>
-
     <string name="tab_feed">Feeds</string>
     <string name="tab_friend">Friends</string>
     <string name="tab_message">Messages</string>
     <string name="tab_notif">Notifications</string>
     <string name="tab_profile">Profile</string>
     <string name="avatar_source">http://www.designskilz.com/</string>
-
-
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

@@ -100,13 +100,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xlarge">
 
-
-
-
-
-
-
-
                 <ProgressBar
                     android:id="@+id/progressBar"
                     style="?android:attr/progressBarStyleLarge"

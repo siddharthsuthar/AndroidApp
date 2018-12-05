@@ -34,9 +34,7 @@ public class ActivityMain extends AppCompatActivity {
     private ViewPager viewPager;
     private FloatingActionButton fab;
     private View parent_view;
-
     private PageFragmentAdapter adapter;
-
     private PageFeedFragment f_feed;
     private PageFriendFragment f_friend;
     //private PageMessageFragment f_message;

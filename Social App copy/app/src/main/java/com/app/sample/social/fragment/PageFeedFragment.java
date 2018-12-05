@@ -1,7 +1,10 @@
 package com.app.sample.social.fragment;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -14,12 +17,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-
+import com.app.sample.social.ActivityRegistration;
 import com.app.sample.social.R;
 import com.app.sample.social.adapter.FeedListAdapter;
 import com.app.sample.social.data.Constant;
 import com.app.sample.social.model.Feed;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,8 +60,9 @@ public class PageFeedFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_new_feed:
-                Snackbar.make(view, item.getTitle()+" Clicked", Snackbar.LENGTH_SHORT).show();
-                return true;
+                Intent i = new Intent(getActivity().getApplicationContext(), ActivityRegistration.class);
+                startActivity(i);
+
         }
         return super.onOptionsItemSelected(item);
     }
